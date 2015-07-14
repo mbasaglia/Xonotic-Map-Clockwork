@@ -82,7 +82,7 @@
 #	(requires the map to be in data as $(MAPNAME))
 
 MAPNAME=clockwork
-VERSION=_v001
+VERSION=_$(shell git describe --tags --dirty)
 
 BASEPATH=$(HOME)/share/Xonotic/
 HOMEPATH=$(HOME)/.xonotic/
@@ -203,6 +203,7 @@ release_nocompile:
 __release_internal:
 	make rename_link NEWNAME=$(MAPNAME)$(VERSION)
 	make pk3 MAPNAME=$(MAPNAME)$(VERSION)
+	ln -s -f -T $(MAPNAME)$(VERSION).pk3 $(MAPNAME)_latest.pk3
 
 bump_nocompile:
 	touch $(MAP_COMPILED)
