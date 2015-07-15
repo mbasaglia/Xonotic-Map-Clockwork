@@ -126,7 +126,9 @@ SCREENSHOT_EXTRA_ARGS=
 SCREENSHOT_ENGINE=xonotic
 
 .SUFFIXES: .bsp .map
-.PHONY: clean dist pk3 rename rename_copy __rename_internal release bsp bsp_full bsp_vis bsp_light bump_nocompile release_nocompile release_compile __release_internal screenshot take_screenshot
+.PHONY: clean clean_old dist pk3 rename rename_copy __rename_internal release \
+bsp bsp_full bsp_vis bsp_light bump_nocompile release_nocompile \
+release_compile  __release_internal screenshot take_screenshot
 
 
 all: $(MAP_COMPILED)
@@ -144,6 +146,9 @@ pk3:
 
 clean:
 	$(REMOVE_FILE) $(PK3NAME) $(DIST_NAME)
+
+clean_old:
+	find . -lname '$(MAPNAME).*' -delete
 
 $(MAP_COMPILED) : $(MAP_SOURCE)
 	$(Q3MAP2) $(Q3MAP2_FLAGS) $(Q3MAP2_FLAGS_BSP) $(MAP_SOURCE)
