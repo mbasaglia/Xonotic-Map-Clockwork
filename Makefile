@@ -235,6 +235,7 @@ $(MAP_INFO):
 	echo "$$AUTO_MAPINFO" >$(MAP_INFO)
 
 SCREENSHOT_ENGINE_ARGS= \
+	-game data_screenshots \
 	-nosound \
 	+'locksession 0' \
 	+'scr_screenshot_timestamp 0' \

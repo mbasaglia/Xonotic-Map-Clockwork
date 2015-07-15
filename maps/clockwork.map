@@ -37245,3 +37245,8 @@ exx/base-metal06rust
 }
 }
 }
+// entity 120
+{
+"classname" "info_autoscreenshot"
+"origin" "-320.000000 -224.000000 1152.000000"
+}
