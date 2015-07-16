@@ -37928,6 +37928,8 @@ exx/base-metal06rust
 "angles" "-90 -90 0"
 "t_length" "156"
 "t_width" "8"
+"targetname" "target_hour"
+"wait" "60"
 // brush 0
 {
 brushDef
@@ -48881,4 +48883,20 @@ brushDef
 "classname" "info_autoscreenshot"
 "origin" "-400.000000 1416.000000 1728.000000"
 "angles" "42.610680 -18.278425 0.000000"
+}
+// entity 147
+{
+"classname" "trigger_gamestart"
+"origin" "128.000000 736.000000 2112.000000"
+"wait" "3600"
+"targetname" "trigger_hour"
+"target" "target_hour"
+}
+// entity 148
+{
+"classname" "target_speaker"
+"origin" "192.000000 736.000000 2112.000000"
+"atten" "-1"
+"noise" "sound/map_clockwork/Westminster_Hour.ogg"
+"targetname" "target_hour"
 }

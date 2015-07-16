@@ -87,8 +87,8 @@ VERSION=_$(shell git describe --tags --dirty)
 BASEPATH=$(HOME)/share/Xonotic/
 HOMEPATH=$(HOME)/.xonotic/
 
-TEXTURE_BLACKLIST= work_files
-EXTRA_DIRS=
+TEXTURE_BLACKLIST=
+EXTRA_DIRS=sound
 EXTRA_FILES_RENAME=
 
 Q3MAP2_FLAGS_EXTRA=
