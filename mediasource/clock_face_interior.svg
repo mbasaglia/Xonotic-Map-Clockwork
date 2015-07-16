@@ -17,24 +17,11 @@
    version="1.1"
    inkscape:version="0.91+devel r"
    sodipodi:docname="clock_face_interior.svg"
-   inkscape:export-filename="clock_face.png"
+   inkscape:export-filename="../textures/map_clockwork/clock_face.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
      id="defs4">
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter4366"
-       x="-0.026227943"
-       width="1.0524559"
-       y="-0.057378008"
-       height="1.114756">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="12.963848"
-         id="feGaussianBlur4368" />
-    </filter>
     <filter
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
@@ -51,19 +38,6 @@
     <filter
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
-       id="filter4397"
-       x="-0.041469143"
-       width="1.0829383"
-       y="-0.056972424"
-       height="1.1139448">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="10.369353"
-         id="feGaussianBlur4399" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
        id="filter4552"
        x="-0.0083773475"
        width="1.0167547"
@@ -74,6 +48,32 @@
          stdDeviation="5.278753"
          id="feGaussianBlur4554" />
     </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter4373"
+       x="-0.21096502"
+       width="1.42193"
+       y="-0.02708079"
+       height="1.0541616">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="14.390706"
+         id="feGaussianBlur4375" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter4414"
+       x="-0.12333391"
+       width="1.2466678"
+       y="-0.029798624"
+       height="1.0595972">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="8.7159299"
+         id="feGaussianBlur4416" />
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -82,28 +82,28 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.042236328"
-     inkscape:cx="684.99131"
-     inkscape:cy="4939.897"
+     inkscape:zoom="0.084472656"
+     inkscape:cx="2032.14"
+     inkscape:cy="3788.1068"
      inkscape:document-units="px"
-     inkscape:current-layer="layer6"
+     inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      inkscape:object-nodes="false"
      showguides="false"
      inkscape:guide-bbox="true"
      inkscape:snap-page="true"
-     inkscape:snap-intersection-paths="true"
+     inkscape:snap-intersection-paths="false"
      inkscape:snap-to-guides="true"
      inkscape:window-width="1788"
      inkscape:window-height="1171"
-     inkscape:window-x="1276"
+     inkscape:window-x="-4"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:snap-bbox="false"
      inkscape:snap-center="true"
      inkscape:snap-others="false"
-     inkscape:snap-nodes="true"
+     inkscape:snap-nodes="false"
      inkscape:snap-bbox-edge-midpoints="false"
      inkscape:object-paths="false"
      inkscape:snap-global="true"
@@ -1371,14 +1371,6 @@
      id="layer5"
      inkscape:label="hands"
      style="display:inline;opacity:1">
-    <path
-       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:4.23333311;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4366)"
-       d="m 1312.8822,1069.5612 c -39.4794,27.2841 -100.9158,9.0355 -204.2206,-32.8247 C 805.62918,913.94505 232.06608,702.04218 185.51608,686.24604 c -29.9056,-10.14806 -45.62,18.66794 -6.644,35.2318 39.3055,16.70398 601.5807,258.0289 907.31802,374.99786 103.7694,39.7002 169.7718,79.547 171.3864,112.8993 l 24.6904,17.0082 c 0,0 13.3294,-48.0105 59.6993,-62.5822 -22.0028,-31.4727 -3.6772,-91.3143 -3.6772,-91.3143 z"
-       id="path4683"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cssssccccc"
-       inkscape:transform-center-x="334.89855"
-       inkscape:transform-center-y="-128.47518" />
     <circle
        style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:4.23333311;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4685"
@@ -1397,13 +1389,39 @@
        inkscape:transform-center-y="-5.4623427"
        transform="rotate(4.7064967)"
        inkscape:transform-center-x="-2.807676" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="hands - hour"
+     style="display:none">
     <path
        id="path4693"
-       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:4.23333311;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4397)"
-       d="m 988.11463,1223.4919 c 30.67077,-13.4278 18.60717,-32.6839 90.24047,-93.8033 56.3238,-48.057 113.8853,-107.4453 157.5703,-70.642 l 11.2009,-8.034 c -12.9913,-27.9956 13.9097,-49.7948 43.9362,-71.00723 23.4238,-16.54806 46.9405,-33.73107 66.7273,-46.73715 19.6079,54.12072 77.9514,36.63409 79.5919,-9.30399 1.953,-54.69102 22.8691,-91.58435 63.7077,-89.8421 l 5.2756,-35.51014 -34.9013,-8.40834 c -13.6802,38.51861 -55.722,44.09435 -107.1636,25.42136 -43.2088,-15.6845 -81.2745,31.86282 -38.437,70.31381 -19.4702,13.4753 -44.2104,28.84461 -68.327,44.36549 -30.9146,19.89612 -61.2024,36.67442 -82.2946,14.14333 l -11.6444,7.37648 c 17.7629,54.28948 -58.8617,85.41798 -124.5162,119.64308 -83.49987,43.5276 -96.83607,25.1299 -120.77377,48.5392 -23.8319,23.3058 -7.2291,51.4389 6.088,71.1807 13.3171,19.7418 34.0907,45.2761 63.7195,32.3048 z"
+       style="display:inline;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:4.23333311;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4414)"
+       d="m 1147.5402,1240.5902 c 5.7227,-32.9886 -16.9932,-33.5514 -28.4463,-127.0166 -9.0054,-73.4897 -26.7786,-154.26359 28.0184,-170.39263 l -0.5207,-13.77441 c -30.5166,-4.61083 -33.8557,-39.07413 -34.9811,-75.82044 -0.8779,-28.66605 -2.2342,-57.75988 -2.1647,-81.43838 55.9563,13.50634 73.5616,-44.80144 36.1532,-71.5149 -44.5362,-31.80333 -63.7662,-69.6029 -39.7814,-102.70208 l -26.7057,-23.99186 -26.2687,24.46947 c 24.5778,32.66135 6.0325,70.80156 -37.9229,103.40278 -36.9207,27.38367 -18.26688,85.36454 37.4368,70.85139 0.4965,23.67332 -0.3349,52.78693 -0.6958,81.46406 -0.4626,36.76077 -3.1797,71.27859 -33.6083,76.43902 l -0.2723,13.78152 c 55.0791,15.13822 38.7652,96.21946 31.0865,169.85986 -9.766,93.6563 -32.4681,94.6285 -26.1512,127.5087 6.289,32.7348 38.9129,34.4095 62.7254,34.1948 23.8126,-0.2149 56.5702,-3.4526 62.0988,-35.3203 z"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ssccscscccscsccsszs"
-       inkscape:transform-center-x="-122.57184"
-       inkscape:transform-center-y="-75.121815" />
+       inkscape:transform-center-x="3.1483942"
+       inkscape:transform-center-y="-158.80115"
+       inkscape:export-filename="../textures/map_clockwork/hand_hour.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="hands - minute"
+     style="display:none">
+    <path
+       style="display:inline;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:4.23333311;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4373)"
+       d="m 1158.9591,1291.582 c -39.8991,-26.6665 -45.5426,-90.5069 -44.6412,-201.967 2.6437,-326.95471 -11.4229,-938.24808 -13.8679,-987.34434 -1.5707,-31.541415 -34.1477,-35.547283 -35.2041,6.78916 -1.0654,42.69438 -18.5101,654.32073 -14.7445,981.64758 1.278,111.0971 -11.4802,187.132 -41.8972,200.9084 l -6.7273,29.2171 c 0,0 49.5464,-5.2762 80.1614,32.476 21.1656,-32.0417 83.5515,-37.0267 83.5515,-37.0267 z"
+       id="path4683"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cssssccccc"
+       inkscape:transform-center-x="-22.288136"
+       inkscape:transform-center-y="-368.10324"
+       inkscape:export-filename="../textures/map_clockwork/hand_minute.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </g>
 </svg>

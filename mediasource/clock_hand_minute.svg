@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="232.78828mm"
+   height="1344.4331mm"
+   viewBox="0 0 232.78828 1344.4331"
+   id="svg4422"
+   version="1.1"
+   inkscape:version="0.91+devel r"
+   sodipodi:docname="clock_hand_minute.svg"
+   inkscape:export-filename="../textures/map_clockwork/clock_hand_minute.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <defs
+     id="defs4424">
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter4373"
+       x="-0.21096502"
+       width="1.42193"
+       y="-0.027080789"
+       height="1.0541615">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="14.390706"
+         id="feGaussianBlur4375" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.061871843"
+     inkscape:cx="-1991.1121"
+     inkscape:cy="2658.6378"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer4"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:snap-page="true"
+     inkscape:object-nodes="true"
+     inkscape:window-width="1788"
+     inkscape:window-height="1171"
+     inkscape:window-x="-4"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4427">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="back"
+     style="display:none">
+    <rect
+       transform="translate(28.703667,509.0201)"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:4.23333311;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4994"
+       width="232.78827"
+       height="1344.433"
+       x="-28.703669"
+       y="-509.02014" />
+  </g>
+  <g
+     inkscape:label="hand"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(28.703668,509.0201)">
+    <path
+       style="display:inline;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:4.23333311;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4373)"
+       d="m 162.91624,739.1484 c -39.8991,-26.6665 -45.5426,-90.5069 -44.6412,-201.967 2.6437,-326.95469 -11.4229,-938.24808 -13.8679,-987.34434 -1.5707,-31.54142 -34.147708,-35.54729 -35.204108,6.78916 -1.0654,42.69438 -18.510101,654.32075 -14.7445,981.64758 1.278,111.0971 -11.480201,187.132 -41.897202,200.9084 l -6.7273005,29.2171 c 0,0 49.5464025,-5.2762 80.1613985,32.476 21.165612,-32.0417 83.551512,-37.0267 83.551512,-37.0267 z"
+       id="path4683"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cssssccccc"
+       inkscape:transform-center-x="-22.288136"
+       inkscape:transform-center-y="-368.10324"
+       inkscape:export-filename="../textures/map_clockwork/hand_minute.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+</svg>
