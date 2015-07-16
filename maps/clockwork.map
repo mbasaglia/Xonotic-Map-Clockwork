@@ -48886,27 +48886,19 @@ brushDef
 }
 // entity 147
 {
-"classname" "trigger_gamestart"
-"origin" "128.000000 736.000000 2112.000000"
-"wait" "3600"
-"targetname" "trigger_hour"
-"target" "target_hour"
-}
-// entity 148
-{
 "classname" "target_speaker"
-"origin" "192.000000 736.000000 2112.000000"
+"origin" "256.000000 1472.000000 2048.000000"
 "atten" "-1"
 "noise" "sound/map_clockwork/Westminster_Hour.ogg"
 "targetname" "target_hour"
 }
-// entity 149
+// entity 148
 {
 "classname" "func_rotating"
 "speed" "0.1"
 "spawnflags" "8"
 }
-// entity 150
+// entity 149
 {
 "classname" "func_rotating"
 "speed" "-0.008333333"
@@ -48937,7 +48929,7 @@ brushDef
 }
 }
 }
-// entity 151
+// entity 150
 {
 "classname" "func_rotating"
 "speed" "-0.1"
@@ -48966,4 +48958,74 @@ brushDef
 ( 160 1536 608 ) ( 160 1568 608 ) ( 160 1536 2208 ) ( ( 0.015625 0 0 ) ( 0 0.015625 255.5 ) ) common/nodrawnonsolid 0 0 0
 }
 }
+}
+// entity 151
+{
+"classname" "trigger_multivibrator"
+"origin" "256.000000 1536.000000 2080.000000"
+"target" "target_hour"
+"wait" "3600"
+"targetname" "trigger_hour"
+}
+// entity 152
+{
+"classname" "target_speaker"
+"origin" "-352.000000 1472.000000 1440.000000"
+"atten" "-1"
+"noise" "sound/map_clockwork/Westminster_Quarter_Past.ogg"
+"targetname" "target_quarter_past"
+}
+// entity 153
+{
+"classname" "trigger_multivibrator"
+"origin" "-384.000000 1536.000000 1440.000000"
+"target" "target_quarter_past"
+"wait" "3600"
+"targetname" "trigger_quaret_past"
+"phase" "2700"
+"spawnflags" "1"
+}
+// entity 154
+{
+"classname" "target_speaker"
+"origin" "256.000000 1472.000000 832.000000"
+"atten" "-1"
+"noise" "sound/map_clockwork/Westminster_Half.ogg"
+"targetname" "target_half"
+}
+// entity 155
+{
+"classname" "trigger_multivibrator"
+"origin" "256.000000 1536.000000 800.000000"
+"target" "target_half"
+"wait" "3600"
+"targetname" "trigger_half"
+"phase" "1800"
+"spawnflags" "1"
+}
+// entity 156
+{
+"classname" "target_speaker"
+"origin" "864.000000 1472.000000 1440.000000"
+"atten" "-1"
+"noise" "sound/map_clockwork/Westminster_Quarter_To.ogg"
+"targetname" "target_quarter_to"
+}
+// entity 157
+{
+"classname" "trigger_multivibrator"
+"origin" "896.000000 1536.000000 1440.000000"
+"target" "target_quarter_to"
+"wait" "3600"
+"targetname" "trigget_quarter_to"
+"phase" "900"
+"spawnflags" "1"
+}
+// entity 158
+{
+"classname" "trigger_gamestart"
+"origin" "256.000000 1536.000000 2112.000000"
+"target" "trigger_hour"
+"wait" "3600"
+"target2" "target_hour"
 }
