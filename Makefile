@@ -148,7 +148,7 @@ clean:
 	$(REMOVE_FILE) $(PK3NAME) $(DIST_NAME)
 
 clean_old:
-	find . -lname '$(MAPNAME).*' -delete
+	find . \( -lname '$(MAPNAME).*' -o -name '$(MAPNAME)*.pk3' \) -delete
 
 $(MAP_COMPILED) : $(MAP_SOURCE)
 	$(Q3MAP2) $(Q3MAP2_FLAGS) $(Q3MAP2_FLAGS_BSP) $(MAP_SOURCE)
