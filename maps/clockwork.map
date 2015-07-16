@@ -48876,3 +48876,9 @@ brushDef
 }
 }
 }
+// entity 146
+{
+"classname" "info_autoscreenshot"
+"origin" "-400.000000 1416.000000 1728.000000"
+"angles" "42.610680 -18.278425 0.000000"
+}
