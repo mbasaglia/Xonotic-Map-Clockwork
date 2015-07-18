@@ -12,6 +12,8 @@ textures/map_clockwork/hand_hour
 {
 	qer_editorimage textures/map_clockwork/clock_hand_hour_preview.png
 	surfaceparm trans
+	surfaceparm nonsolid
+
 	{
 		map textures/map_clockwork/clock_hand_hour.png
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
@@ -21,6 +23,8 @@ textures/map_clockwork/hand_minute
 {
 	qer_editorimage textures/map_clockwork/clock_hand_minute_preview.png
 	surfaceparm trans
+	surfaceparm nonsolid
+	
 	{
 		map textures/map_clockwork/clock_hand_minute.png
 		blendFunc GL_SRC_ALPHA GL_ONE_MINUS_SRC_ALPHA
