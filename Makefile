@@ -1,16 +1,14 @@
 #-------------------
-# config variables
+# Config variables
 #-------------------
 # MAPNAME 
-#	name of the map
+#	Name of the map
 # VERSION
-#	suffix used on release
-# TEXTURE_BLACKLIST
-#	list of files in textures that must not be copiend in the pk3
+#	Suffix used on release
 # EXTRA_FILES_RENAME
-#	additional files that will be added to the pk3 and renamed by rename* targets
-# EXTRA_DIRS
-#	additional directories that will be recursively added to the pk3
+#	Additional files that will be added to the pk3 and renamed by rename* targets
+# EXTRA_FILES
+#	Additional files and directories that will be recursively added to the pk3
 #-------------------
 # q3map2 options
 #-------------------
@@ -20,6 +18,8 @@
 #	Game user directory
 # Q3MAP2
 #	Command used to compile the map
+# Q3MAP2_FLAGS_EXTRA
+#	Extra user-defined options to pass to q3map2
 # Q3MAP2_FLAGS
 #	Global flags
 # Q3MAP2_FLAGS_BSP
@@ -29,7 +29,7 @@
 # Q3MAP2_FLAGS_LIGHT
 #	Flags used during the -light pass
 #-------------------
-# screenshot variables
+# Screenshot variables
 #-------------------
 # SCREENSHOT_TIMEOUT
 #	Maximum time the game can stay active when taking screenshots (default 60)
@@ -37,27 +37,39 @@
 #	Game engine for the screenshots (default xonotic)
 # SCREENSHOT_EXTRA_ARGS
 #	Extra arguments for the game engine when taking screenshots
+# SCREENSHOT_DATA_DIR
+#	Directory (relative to HOMEPATH) for the xonotic screenshot data
 #-------------------
 # targets
 #-------------------
 # all
-#	Compile the map in a bsp
+#	Compile the map in a bsp and create a package with the current version number
 # bsp_vis
 #	Compile -vis pass
 # bsp_light
 #	Compile -light pass
 # bsp_full
 #	Compile with -vis and -light passes
-# dist
-#	Make a tarball containing all files in the current directory
-# pk3
-#	Compile bsp and minimap, then create a pk3 containing all the release files
-# clean
-#	Remove the files created by dist and pk3
 # %.bsp
 #	Compile a bsp from a map
 # gfx/%_mini.tga
 #	Compile a minimap from a map
+# %.mapinfo
+#	Creates a generic mapinfo file
+# clean
+#	Remove the files created by release
+# clean_packages
+#	Remove the files created by dist and pk3
+# dist
+#	Make a tarball containing all files in the current directory
+# pk3
+#	Compile bsp and minimap, then create a pk3 containing all the release files
+# rename
+#	Rename files from $(MAPNAME).* to $(NEWNAME).*
+# rename_copy
+#	Copy files from $(MAPNAME).* to $(NEWNAME).*
+# rename_link
+#	Link to $(MAPNAME).* from $(NEWNAME).*
 # release
 #	Compile (only bsp), rename_link to $(MAPNAME)$(VERSION) and create pk3
 # release_compile
@@ -66,14 +78,6 @@
 #	Does not perform directly any compilation
 # bump_nocompile
 #	Touches files in order to avoid recompilation
-# rename
-#	Rename files from $(MAPNAME).* to $(NEWNAME).*
-# rename_copy
-#	Copy files from $(MAPNAME).* to $(NEWNAME).*
-# rename_link
-#	Link to $(MAPNAME).* from $(NEWNAME).*
-# __rename_internal
-#	Used by rename, rename_copy, rename_link.
 # screenshot
 #	Take screenshots of the map using info_autoscreenshot entities 
 #	(requires the map to be in data as $(MAPNAME)$(VERSION))
@@ -84,19 +88,23 @@
 MAPNAME=clockwork
 VERSION=_$(shell git describe --tags --dirty)
 
-BASEPATH=$(HOME)/share/Xonotic/
-HOMEPATH=$(HOME)/.xonotic/
-
-TEXTURE_BLACKLIST=
-EXTRA_DIRS=sound
+EXTRA_FILES=sound
 EXTRA_FILES_RENAME=
+
+BASEPATH=$(HOME)/src/xonotic/
+HOMEPATH=$(HOME)/.xonotic/
 
 Q3MAP2_FLAGS_EXTRA=
 Q3MAP2_FLAGS= -v -connect 127.0.0.1:39000 -game xonotic -fs_basepath "$(BASEPATH)" -fs_homepath "$(HOMEPATH)" -fs_game data $(Q3MAP2_FLAGS_EXTRA)
-Q3MAP2_FLAGS_BSP= -meta -v
+Q3MAP2_FLAGS_BSP= -meta -keepLights -v
 Q3MAP2_FLAGS_VIS= -vis -saveprt
 Q3MAP2_FLAGS_LIGHT= -light -fast
 Q3MAP2=q3map2
+
+SCREENSHOT_TIMEOUT=60
+SCREENSHOT_EXTRA_ARGS=
+SCREENSHOT_ENGINE=xonotic
+SCREENSHOT_DATA_DIR=data_screenshots
 
 PK3_ADD=zip -p $(PK3NAME)
 REMOVE_FILE=rm -f
@@ -111,8 +119,7 @@ MAP_INFO=maps/$(MAPNAME).mapinfo
 MAP_SCREENSHOT=maps/$(MAPNAME).jpg
 MAP_WAYPOINTS=maps/$(MAPNAME).waypoints
 MINIMAP=gfx/$(MAPNAME)_mini.tga
-TEXTUREDIR=textures
-TEXTURES=$(filter-out $(addprefix $(TEXTUREDIR)/,$(TEXTURE_BLACKLIST)), $(wildcard $(TEXTUREDIR)/*))
+TEXTURES=$(wildcard textures/*)
 SCRIPTS= $(wildcard scripts/*)
 DIST_NAME=$(MAPNAME).tar.gz
 DIST_FILES=$(filter-out $(DIST_NAME) $(PK3NAME), $(wildcard *))
@@ -121,50 +128,47 @@ NEWNAME=$(MAPNAME)
 FILES_RENAME=$(MAP_SOURCE) $(MAP_COMPILED) $(MAP_INFO) $(MAP_SCREENSHOT) $(MINIMAP) $(EXTRA_FILES_RENAME)
 __RENAME_INTERNAL_FILE_ACTION=echo
 
-SCREENSHOT_TIMEOUT=60
-SCREENSHOT_EXTRA_ARGS=
-SCREENSHOT_ENGINE=xonotic
-
 .SUFFIXES: .bsp .map
-.PHONY: clean clean_old dist pk3 rename rename_copy __rename_internal release \
-bsp bsp_full bsp_vis bsp_light bump_nocompile release_nocompile \
-release_compile  __release_internal screenshot take_screenshot
 
+all: release
 
-all: $(MAP_COMPILED)
-
+.PHONY: dist
 dist:
 	$(REMOVE_FILE) $(DIST_NAME)
 	tar -caf $(DIST_NAME) $(DIST_FILES)
 
+.PHONY: pk3
 pk3: $(MAP_COMPILED)
 pk3: $(MINIMAP)
 pk3:
 	$(REMOVE_FILE) $(PK3NAME)
 	$(PK3_ADD) $(SCRIPTS) $(MAP_COMPILED) $(MINIMAP) $(MAP_SOURCE) $(MAP_INFO) $(MAP_SCREENSHOT) $(EXTRA_FILES_RENAME)
-	$(PK3_ADD) -r $(TEXTURES) $(EXTRA_DIRS)
+	$(PK3_ADD) -r $(TEXTURES) $(EXTRA_FILES)
 
-clean:
+.PHONY: clean_packages
+clean_packages:
 	$(REMOVE_FILE) $(PK3NAME) $(DIST_NAME)
 
-clean_old:
+.PHONY: clean
+clean:
 	find . \( -lname '$(MAPNAME).*' -o -name '$(MAPNAME)*.pk3' \) -delete
 
+#TODO: add dependencies to scripts and textures
 $(MAP_COMPILED) : $(MAP_SOURCE)
 	$(Q3MAP2) $(Q3MAP2_FLAGS) $(Q3MAP2_FLAGS_BSP) $(MAP_SOURCE)
 
-#TODO: remove this and add proper dependencies to scripts and textures
-bsp:
-	$(Q3MAP2) $(Q3MAP2_FLAGS) $(Q3MAP2_FLAGS_BSP) $(MAP_SOURCE)
-
+.PHONY: bsp_vis
 bsp_vis: $(MAP_COMPILED)
 bsp_vis:
 	$(Q3MAP2) $(Q3MAP2_FLAGS) $(Q3MAP2_FLAGS_VIS)   $(MAP_SOURCE)
+
+.PHONY: bsp_light
 bsp_light: $(MAP_COMPILED)
 bsp_light:
 	$(Q3MAP2) $(Q3MAP2_FLAGS) $(Q3MAP2_FLAGS_LIGHT) $(MAP_SOURCE)
 
-bsp_full: bsp
+.PHONY: bsp_full
+bsp_full: $(MAP_COMPILED)
 bsp_full: bsp_vis
 bsp_full: bsp_light
 bsp_full:
@@ -172,44 +176,51 @@ bsp_full:
 $(MINIMAP) : $(MAP_COMPILED)
 	$(Q3MAP2) -minimap -o $(MINIMAP) $(MAP_COMPILED)
 
-
+.PHONY: rename
 rename: __RENAME_INTERNAL_FILE_ACTION=$(RENAME_FILE)
 rename: __rename_internal
 rename:
 
+.PHONY: rename_copy
 rename_copy: __RENAME_INTERNAL_FILE_ACTION=$(COPY_FILE)
 rename_copy: __rename_internal
 rename_copy:
 
+.PHONY: rename_link
 rename_link: __RENAME_INTERNAL_FILE_ACTION=$(LINK_FILE)
 rename_link: __rename_internal
 rename_link:
 
+.PHONY: __rename_internal
 __rename_internal: $(FILES_RENAME)
 __rename_internal:
 	$(foreach file, $(FILES_RENAME), $(__RENAME_INTERNAL_FILE_ACTION) $(notdir $(file)) $(subst $(MAPNAME),$(NEWNAME),$(file));)
-	
-	
+
+.PHONY: release_compile
 release_compile: $(MAP_COMPILED)
 release_compile: $(MINIMAP)
 release_compile: bsp_full
 release_compile: __release_internal
 release_compile:
 
+.PHONY: release
 release: $(MAP_COMPILED)
 release: $(MINIMAP)
 release: __release_internal
 release:
 
+.PHONY: release_nocompile
 release_nocompile: bump_nocompile
 release_nocompile: __release_internal
 release_nocompile:
-	
+
+.PHONY: __release_internal
 __release_internal:
 	make rename_link NEWNAME=$(MAPNAME)$(VERSION)
 	make pk3 MAPNAME=$(MAPNAME)$(VERSION)
 	ln -s -f -T $(MAPNAME)$(VERSION).pk3 $(MAPNAME)_latest.pk3
 
+.PHONY: bump_nocompile
 bump_nocompile:
 	touch $(MAP_COMPILED)
 	touch $(MINIMAP)
@@ -240,7 +251,7 @@ $(MAP_INFO):
 	echo "$$AUTO_MAPINFO" >$(MAP_INFO)
 
 SCREENSHOT_ENGINE_ARGS= \
-	-game data_screenshots \
+	-game $(SCREENSHOT_DATA_DIR) \
 	-nosound \
 	+'locksession 0' \
 	+'scr_screenshot_timestamp 0' \
@@ -271,9 +282,12 @@ SCREENSHOT_ENGINE_ARGS= \
 	+"map \"$(MAPNAME)\"" \
 	+'timelimit 0' \
 	+'fraglimit 0'
+
+.PHONY: screenshot
 screenshot:
 	make take_screenshot MAPNAME=$(MAPNAME)$(VERSION)
 
+.PHONY: take_screenshot
 take_screenshot: SCREENSHOT_COUNT=$(shell grep '"classname" "info_autoscreenshot"' $(MAP_SOURCE) | wc -l)
 take_screenshot:
 	$(SCREENSHOT_ENGINE) $(SCREENSHOT_ENGINE_ARGS) </dev/null
