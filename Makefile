@@ -160,7 +160,7 @@ $(MAP_COMPILED) : $(MAP_SOURCE)
 .PHONY: bsp_vis
 bsp_vis: $(MAP_COMPILED)
 bsp_vis:
-	$(Q3MAP2) $(Q3MAP2_FLAGS) $(Q3MAP2_FLAGS_VIS)   $(MAP_SOURCE)
+	$(Q3MAP2) $(Q3MAP2_FLAGS) $(Q3MAP2_FLAGS_VIS) $(MAP_SOURCE)
 
 .PHONY: bsp_light
 bsp_light: $(MAP_COMPILED)
