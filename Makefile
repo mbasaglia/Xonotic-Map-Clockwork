@@ -151,7 +151,9 @@ clean_packages:
 
 .PHONY: clean
 clean:
-	find . \( -lname '$(MAPNAME).*' -o -name '$(MAPNAME)*.pk3' \) -delete
+	find . \( -lname '$(MAPNAME).*' -o -name '$(MAPNAME)*.pk3' -o -lname '$(MAPNAME)_mini.*' \) -delete
+	$(REMOVE_FILE) 'maps/$(MAPNAME).bsp' 'maps/$(MAPNAME).prt' 'maps/$(MAPNAME).srf' 'gfx/$(MAPNAME)_mini.tga'
+	rmdir --ignore-fail-on-non-empty gfx
 
 #TODO: add dependencies to scripts and textures
 $(MAP_COMPILED) : $(MAP_SOURCE)
