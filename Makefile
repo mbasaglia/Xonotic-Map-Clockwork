@@ -88,7 +88,7 @@
 MAPNAME=clockwork
 VERSION=_$(shell git describe --tags --dirty)
 
-EXTRA_FILES=sound
+EXTRA_FILES=sound README
 EXTRA_FILES_RENAME=
 
 BASEPATH=$(HOME)/src/xonotic/
